@@ -1,0 +1,35 @@
+    int n=nums.size();
+   
+   //step1:
+   int index1=0,index2=0;
+    
+   for(int i=n-1;i>0;i--){
+       if(nums[i]>nums[i-1])
+       {
+         index1=i-1;
+           break;
+       } 
+   }
+    
+   //step2.
+    for(int i=n-1;i>=0;i--){
+        if(nums[i]>nums[index1]){
+            index2=i;
+            break;
+        }
+    }
+    //For checking whether it is in non-increasing order
+    if(index1==0 && index2==0){
+     reverse(nums.begin(),nums.end());   
+    }
+    else{
+    //Step4.
+    swap(nums[index1],nums[index2]);
+    
+    //Step4.    
+    reverse(nums.begin()+(index1+1),nums.end());
+    
+    }
+}
+
+
